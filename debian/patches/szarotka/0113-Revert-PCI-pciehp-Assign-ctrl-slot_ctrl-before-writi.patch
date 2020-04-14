@@ -1,0 +1,25 @@
+From: nabijaczleweli <nabijaczleweli@gmail.com>
+Date: Tue, 14 Apr 2020 17:50:21 +0200
+Subject: Revert "PCI: pciehp: Assign ctrl->slot_ctrl before writing it to
+ hardware"
+
+This reverts commit 25bd879ec16ad3b83a5b1c3f16faa55e696bfccb.
+---
+ drivers/pci/hotplug/pciehp_hpc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
+index 8a2cb17..b99cd65 100644
+--- a/drivers/pci/hotplug/pciehp_hpc.c
++++ b/drivers/pci/hotplug/pciehp_hpc.c
+@@ -156,9 +156,9 @@ static void pcie_do_write_cmd(struct controller *ctrl, u16 cmd,
+ 	slot_ctrl |= (cmd & mask);
+ 	ctrl->cmd_busy = 1;
+ 	smp_mb();
+-	ctrl->slot_ctrl = slot_ctrl;
+ 	pcie_capability_write_word(pdev, PCI_EXP_SLTCTL, slot_ctrl);
+ 	ctrl->cmd_started = jiffies;
++	ctrl->slot_ctrl = slot_ctrl;
+ 
+ 	/*
+ 	 * Controllers with the Intel CF118 and similar errata advertise
