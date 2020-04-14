@@ -1,3 +1,10 @@
+linux (5.5.13-2~szarotka1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Revert upstream commit 25bd879ec16ad3b83a5b1c3f16faa55e696bfccb
+
+ -- nabijaczleweli <nabijaczleweli@gmail.com>  Tue, 14 Apr 2020 18:10:01 +0200
+
 linux (5.5.13-2) unstable; urgency=medium
 
   * bpf: Undo incorrect __reg_bound_offset32 handling (CVE-2020-8835)
