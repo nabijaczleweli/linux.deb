@@ -157,3 +157,4 @@ debian/overlayfs-permit-mounts-in-userns.patch
 
 szarotka/0001-Revert-PCI-pciehp-Assign-ctrl-slot_ctrl-before-writi.patch
 szarotka/0002-Revert-PCI-pciehp-Do-not-handle-events-if-interrupts.patch
+szarotka/0003-Use-different-log-prefixes-for-the-pciehp-subfiles.patch

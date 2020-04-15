@@ -1,0 +1,67 @@
+From e84a4d6c0a49aea669fc99b5aec6431dbe271dec Mon Sep 17 00:00:00 2001
+From: nabijaczleweli <nabijaczleweli@gmail.com>
+Date: Wed, 15 Apr 2020 01:56:09 +0200
+Subject: [PATCH 3/3] Use different log prefixes for the pciehp subfiles
+
+---
+ drivers/pci/hotplug/pciehp_core.c | 2 +-
+ drivers/pci/hotplug/pciehp_ctrl.c | 2 +-
+ drivers/pci/hotplug/pciehp_hpc.c  | 2 +-
+ drivers/pci/hotplug/pciehp_pci.c  | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/hotplug/pciehp_core.c b/drivers/pci/hotplug/pciehp_core.c
+index 312cc45c44c7..aac5d10753b2 100644
+--- a/drivers/pci/hotplug/pciehp_core.c
++++ b/drivers/pci/hotplug/pciehp_core.c
+@@ -17,7 +17,7 @@
+  *   Dely Sy <dely.l.sy@intel.com>"
+  */
+ 
+-#define pr_fmt(fmt) "pciehp: " fmt
++#define pr_fmt(fmt) "pciehp_core: " fmt
+ #define dev_fmt pr_fmt
+ 
+ #include <linux/moduleparam.h>
+diff --git a/drivers/pci/hotplug/pciehp_ctrl.c b/drivers/pci/hotplug/pciehp_ctrl.c
+index 6503d15effbb..ecfef788a0fc 100644
+--- a/drivers/pci/hotplug/pciehp_ctrl.c
++++ b/drivers/pci/hotplug/pciehp_ctrl.c
+@@ -13,7 +13,7 @@
+  *
+  */
+ 
+-#define dev_fmt(fmt) "pciehp: " fmt
++#define dev_fmt(fmt) "pciehp_ctrl: " fmt
+ 
+ #include <linux/kernel.h>
+ #include <linux/types.h>
+diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
+index f7aad74b5609..b225847e2f81 100644
+--- a/drivers/pci/hotplug/pciehp_hpc.c
++++ b/drivers/pci/hotplug/pciehp_hpc.c
+@@ -12,7 +12,7 @@
+  * Send feedback to <greg@kroah.com>,<kristen.c.accardi@intel.com>
+  */
+ 
+-#define dev_fmt(fmt) "pciehp: " fmt
++#define dev_fmt(fmt) "pciehp_hpc: " fmt
+ 
+ #include <linux/dmi.h>
+ #include <linux/kernel.h>
+diff --git a/drivers/pci/hotplug/pciehp_pci.c b/drivers/pci/hotplug/pciehp_pci.c
+index d17f3bf36f70..fcb747752b4b 100644
+--- a/drivers/pci/hotplug/pciehp_pci.c
++++ b/drivers/pci/hotplug/pciehp_pci.c
+@@ -13,7 +13,7 @@
+  *
+  */
+ 
+-#define dev_fmt(fmt) "pciehp: " fmt
++#define dev_fmt(fmt) "pciehp_pci: " fmt
+ 
+ #include <linux/kernel.h>
+ #include <linux/types.h>
+-- 
+2.20.1
+
