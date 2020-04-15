@@ -13,7 +13,7 @@ diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
 index 53433b37e181..c9a0220d9e0f 100644
 --- a/drivers/pci/hotplug/pciehp_hpc.c
 +++ b/drivers/pci/hotplug/pciehp_hpc.c
-@@ -175,9 +175,9 @@ static void pcie_do_write_cmd(struct controller *ctrl, u16 cmd,
+@@ -156,9 +156,9 @@ static void pcie_do_write_cmd(struct controller *ctrl, u16 cmd,
  	slot_ctrl |= (cmd & mask);
  	ctrl->cmd_busy = 1;
  	smp_mb();
@@ -21,9 +21,9 @@ index 53433b37e181..c9a0220d9e0f 100644
  	pcie_capability_write_word(pdev, PCI_EXP_SLTCTL, slot_ctrl);
  	ctrl->cmd_started = jiffies;
 +	ctrl->slot_ctrl = slot_ctrl;
- 
+
  	/*
  	 * Controllers with the Intel CF118 and similar errata advertise
--- 
+--
 2.20.1
 

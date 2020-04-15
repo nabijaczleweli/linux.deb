@@ -13,9 +13,9 @@ diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
 index c9a0220d9e0f..f7aad74b5609 100644
 --- a/drivers/pci/hotplug/pciehp_hpc.c
 +++ b/drivers/pci/hotplug/pciehp_hpc.c
-@@ -568,11 +568,9 @@ static irqreturn_t pciehp_isr(int irq, void *dev_id)
- 	u16 status, events = 0;
- 
+@@ -530,11 +530,9 @@ static irqreturn_t pciehp_isr(int irq, void *dev_id)
+ 	u16 status, events;
+
  	/*
 -	 * Interrupts only occur in D3hot or shallower and only if enabled
 -	 * in the Slot Control register (PCIe r4.0, sec 6.7.3.4).
@@ -25,8 +25,8 @@ index c9a0220d9e0f..f7aad74b5609 100644
 -	    (!(ctrl->slot_ctrl & PCI_EXP_SLTCTL_HPIE) && !pciehp_poll_mode))
 +	if (pdev->current_state == PCI_D3cold)
  		return IRQ_NONE;
- 
+
  	/*
--- 
+--
 2.20.1
 

@@ -17,11 +17,11 @@ index 312cc45c44c7..aac5d10753b2 100644
 @@ -17,7 +17,7 @@
   *   Dely Sy <dely.l.sy@intel.com>"
   */
- 
+
 -#define pr_fmt(fmt) "pciehp: " fmt
 +#define pr_fmt(fmt) "pciehp_core: " fmt
  #define dev_fmt pr_fmt
- 
+
  #include <linux/moduleparam.h>
 diff --git a/drivers/pci/hotplug/pciehp_ctrl.c b/drivers/pci/hotplug/pciehp_ctrl.c
 index 6503d15effbb..ecfef788a0fc 100644
@@ -30,10 +30,10 @@ index 6503d15effbb..ecfef788a0fc 100644
 @@ -13,7 +13,7 @@
   *
   */
- 
+
 -#define dev_fmt(fmt) "pciehp: " fmt
 +#define dev_fmt(fmt) "pciehp_ctrl: " fmt
- 
+
  #include <linux/kernel.h>
  #include <linux/types.h>
 diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
@@ -43,12 +43,12 @@ index f7aad74b5609..b225847e2f81 100644
 @@ -12,7 +12,7 @@
   * Send feedback to <greg@kroah.com>,<kristen.c.accardi@intel.com>
   */
- 
+
 -#define dev_fmt(fmt) "pciehp: " fmt
 +#define dev_fmt(fmt) "pciehp_hpc: " fmt
- 
- #include <linux/dmi.h>
+
  #include <linux/kernel.h>
+ #include <linux/types.h>
 diff --git a/drivers/pci/hotplug/pciehp_pci.c b/drivers/pci/hotplug/pciehp_pci.c
 index d17f3bf36f70..fcb747752b4b 100644
 --- a/drivers/pci/hotplug/pciehp_pci.c
@@ -56,12 +56,12 @@ index d17f3bf36f70..fcb747752b4b 100644
 @@ -13,7 +13,7 @@
   *
   */
- 
+
 -#define dev_fmt(fmt) "pciehp: " fmt
 +#define dev_fmt(fmt) "pciehp_pci: " fmt
- 
+
  #include <linux/kernel.h>
  #include <linux/types.h>
--- 
+--
 2.20.1
 
