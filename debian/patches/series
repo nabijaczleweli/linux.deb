@@ -154,4 +154,6 @@ bugfix/all/0005-libtraceevent-Add-dependency-on-libdl.patch
 debian/overlayfs-permit-mounts-in-userns.patch
 
 # ABI maintenance
-szarotka/0113-Revert-PCI-pciehp-Assign-ctrl-slot_ctrl-before-writi.patch
+
+szarotka/0001-Revert-PCI-pciehp-Assign-ctrl-slot_ctrl-before-writi.patch
+szarotka/0002-Revert-PCI-pciehp-Do-not-handle-events-if-interrupts.patch

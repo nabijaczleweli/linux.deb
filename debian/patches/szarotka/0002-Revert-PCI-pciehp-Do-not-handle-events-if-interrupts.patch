@@ -1,0 +1,32 @@
+From 40ac1b5d101b41822430ac9a26071fe382cb6e4c Mon Sep 17 00:00:00 2001
+From: nabijaczleweli <nabijaczleweli@gmail.com>
+Date: Wed, 15 Apr 2020 01:08:54 +0200
+Subject: [PATCH 2/3] Revert "PCI: pciehp: Do not handle events if interrupts
+ are masked"
+
+This reverts commit 720d6a671a6e2cf2b9ed032279b7c21c122bed7e.
+---
+ drivers/pci/hotplug/pciehp_hpc.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
+index c9a0220d9e0f..f7aad74b5609 100644
+--- a/drivers/pci/hotplug/pciehp_hpc.c
++++ b/drivers/pci/hotplug/pciehp_hpc.c
+@@ -568,11 +568,9 @@ static irqreturn_t pciehp_isr(int irq, void *dev_id)
+ 	u16 status, events = 0;
+ 
+ 	/*
+-	 * Interrupts only occur in D3hot or shallower and only if enabled
+-	 * in the Slot Control register (PCIe r4.0, sec 6.7.3.4).
++	 * Interrupts only occur in D3hot or shallower (PCIe r4.0, sec 6.7.3.4).
+ 	 */
+-	if (pdev->current_state == PCI_D3cold ||
+-	    (!(ctrl->slot_ctrl & PCI_EXP_SLTCTL_HPIE) && !pciehp_poll_mode))
++	if (pdev->current_state == PCI_D3cold)
+ 		return IRQ_NONE;
+ 
+ 	/*
+-- 
+2.20.1
+

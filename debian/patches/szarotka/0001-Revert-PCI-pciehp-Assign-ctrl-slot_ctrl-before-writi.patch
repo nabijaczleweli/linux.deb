@@ -1,7 +1,8 @@
+From 292665393bd87ca714fa6fe82f06fe684573ec10 Mon Sep 17 00:00:00 2001
 From: nabijaczleweli <nabijaczleweli@gmail.com>
 Date: Tue, 14 Apr 2020 17:50:21 +0200
-Subject: Revert "PCI: pciehp: Assign ctrl->slot_ctrl before writing it to
- hardware"
+Subject: [PATCH 1/3] Revert "PCI: pciehp: Assign ctrl->slot_ctrl before
+ writing it to hardware"
 
 This reverts commit 25bd879ec16ad3b83a5b1c3f16faa55e696bfccb.
 ---
@@ -9,10 +10,10 @@ This reverts commit 25bd879ec16ad3b83a5b1c3f16faa55e696bfccb.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
-index 8a2cb17..b99cd65 100644
+index 53433b37e181..c9a0220d9e0f 100644
 --- a/drivers/pci/hotplug/pciehp_hpc.c
 +++ b/drivers/pci/hotplug/pciehp_hpc.c
-@@ -156,9 +156,9 @@ static void pcie_do_write_cmd(struct controller *ctrl, u16 cmd,
+@@ -175,9 +175,9 @@ static void pcie_do_write_cmd(struct controller *ctrl, u16 cmd,
  	slot_ctrl |= (cmd & mask);
  	ctrl->cmd_busy = 1;
  	smp_mb();
@@ -23,3 +24,6 @@ index 8a2cb17..b99cd65 100644
  
  	/*
  	 * Controllers with the Intel CF118 and similar errata advertise
+-- 
+2.20.1
+
