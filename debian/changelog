@@ -1,3 +1,12 @@
+linux (5.5.13-2.1~szarotka2) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix szarotka patchset naming
+  * Revert upstream commit 720d6a671a6e2cf2b9ed032279b7c21c122bed7e
+  * Use different log prefixes for the pciehp subfiles
+
+ -- nabijaczleweli <nabijaczleweli@gmail.com>  Wed, 15 Apr 2020 19:26:06 +0200
+
 linux (5.5.13-2~szarotka1) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
